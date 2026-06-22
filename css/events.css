@@ -1,0 +1,504 @@
+:root {
+    --event-pink: #cf1680;
+    --event-blue: #123f8c;
+    --event-ink: #17233f;
+    --event-muted: #667085;
+    --event-soft: #f7faff;
+    --event-line: rgba(18, 63, 140, 0.14);
+    --event-shadow: 0 20px 60px rgba(18, 63, 140, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.events-page {
+    min-height: 100vh;
+    background: #ffffff;
+    color: var(--event-ink);
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.events-page img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.events-hero {
+    position: relative;
+    min-height: 74vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 150px 7vw 76px;
+    overflow: hidden;
+}
+
+.events-hero-media,
+.events-hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.events-hero-overlay {
+    background:
+        linear-gradient(90deg, rgba(13, 31, 69, 0.82), rgba(13, 31, 69, 0.24)),
+        linear-gradient(0deg, rgba(13, 31, 69, 0.46), rgba(13, 31, 69, 0.08));
+}
+
+.events-hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(820px, 100%);
+    color: #ffffff;
+}
+
+.events-hero-content p,
+.events-kicker,
+.events-section-heading p,
+.event-card-body > p {
+    margin-bottom: 14px;
+    color: var(--event-pink);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.events-hero-content h1 {
+    margin-bottom: 18px;
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1.02;
+    letter-spacing: 0;
+}
+
+.events-hero-content span {
+    display: block;
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 18px;
+    line-height: 1.78;
+}
+
+.events-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.events-hero-actions a,
+.events-featured-copy a,
+.event-card-body a,
+.events-note-container a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.events-hero-actions a:first-child,
+.events-featured-copy a,
+.event-card-body a {
+    background: var(--event-pink);
+    color: #ffffff;
+}
+
+.events-hero-actions a:last-child {
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    color: #ffffff;
+}
+
+.events-intro-section,
+.events-featured-section,
+.events-list-section,
+.events-note-section {
+    width: 100%;
+    padding: 78px 7vw;
+}
+
+.events-intro-section,
+.events-list-section {
+    background: var(--event-soft);
+}
+
+.events-intro-container,
+.events-section-heading {
+    width: min(860px, 100%);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.events-section-heading {
+    margin-bottom: 36px;
+}
+
+.events-intro-container h2,
+.events-featured-copy h2,
+.events-section-heading h2,
+.events-note-container h2 {
+    margin-bottom: 18px;
+    color: var(--event-blue);
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.16;
+    letter-spacing: 0;
+}
+
+.events-intro-container p:not(.events-kicker),
+.events-featured-copy p,
+.events-note-container p {
+    color: var(--event-muted);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.events-featured-container {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 42px;
+}
+
+.events-featured-image {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #eef5ff;
+    box-shadow: var(--event-shadow);
+}
+
+.events-featured-image::before {
+    content: "Ảnh sự kiện";
+    position: absolute;
+    color: rgba(207, 22, 128, 0.42);
+    font-weight: 800;
+}
+
+.events-featured-copy ul,
+.event-card-body ul {
+    display: grid;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding-left: 20px;
+}
+
+.events-featured-copy li,
+.event-card-body li {
+    color: var(--event-muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.events-featured-copy a,
+.event-card-body a {
+    margin-top: 24px;
+}
+
+.events-list-grid {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.events-list-grid article {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border: 1px solid var(--event-line);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(18, 63, 140, 0.08);
+    overflow: hidden;
+}
+
+.event-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--event-blue);
+    color: #ffffff;
+}
+
+.event-date strong {
+    font-size: 24px;
+    letter-spacing: 0;
+}
+
+.event-date span {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.event-card-body {
+    padding: 18px;
+}
+
+.event-card-body img {
+    aspect-ratio: 4 / 3;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    background: #eef5ff;
+}
+
+.event-card-body h3 {
+    margin-bottom: 12px;
+    color: var(--event-ink);
+    font-size: 21px;
+    line-height: 1.34;
+}
+
+.events-note-section {
+    background: var(--event-blue);
+}
+
+.events-note-container {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 32px;
+}
+
+.events-note-container .events-kicker,
+.events-note-container h2,
+.events-note-container p {
+    color: #ffffff;
+}
+
+.events-note-container p {
+    opacity: 0.88;
+}
+
+.events-note-container a {
+    background: #ffffff;
+    color: var(--event-pink);
+    white-space: nowrap;
+}
+
+.events-original-section {
+    padding: 150px 7vw 86px;
+    background: var(--event-soft);
+}
+
+.events-science-section {
+    padding: 78px 7vw;
+    background: #ffffff;
+}
+
+.events-original-container {
+    width: min(980px, 100%);
+    margin: 0 auto;
+}
+
+.events-original-container h1 {
+    color: var(--event-blue);
+    letter-spacing: 0;
+}
+
+.events-original-container h1 {
+    margin-bottom: 38px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    text-align: center;
+}
+
+.events-original-card {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.32fr) minmax(0, 1fr) minmax(170px, 0.34fr);
+    gap: 28px;
+    padding: 34px;
+    border: 1px solid var(--event-line);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--event-muted);
+    box-shadow: 0 22px 70px rgba(18, 63, 140, 0.12);
+}
+
+.events-original-detail {
+    display: grid;
+    gap: 10px;
+}
+
+.events-original-date p,
+.events-original-meta p,
+.events-original-detail p,
+.events-science-section p {
+    color: var(--event-muted);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.events-original-detail h2 {
+    color: var(--event-blue);
+    font-size: clamp(24px, 3vw, 38px);
+    line-height: 1.18;
+}
+
+.events-original-detail strong {
+    color: var(--event-ink);
+}
+
+.events-original-date p,
+.events-original-meta p:first-child {
+    color: var(--event-blue);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.events-original-date {
+    position: relative;
+    min-height: 112px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 22px 14px;
+    border-radius: 8px;
+    background: rgba(207, 22, 128, 0.08);
+    text-align: center;
+}
+
+.events-original-meta {
+    align-self: start;
+    padding: 22px 18px;
+    border-radius: 8px;
+    background: var(--event-blue);
+    color: #ffffff;
+}
+
+.events-original-meta p:first-child,
+.events-original-meta p {
+    color: #ffffff;
+}
+
+.events-original-meta p + p {
+    margin-top: 18px;
+    font-weight: 700;
+}
+
+.events-science-section h2 {
+    margin-bottom: 18px;
+    color: var(--event-blue);
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.16;
+    text-align: center;
+}
+
+.events-science-section p {
+    text-align: center;
+}
+
+.events-science-section p + p {
+    margin-top: 10px;
+}
+
+.events-science-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.events-science-grid article {
+    padding: 18px;
+    border: 1px solid var(--event-line);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(18, 63, 140, 0.08);
+}
+
+.events-science-image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #eef5ff;
+}
+
+.events-science-image::before {
+    content: "Ảnh công trình khoa học";
+    position: absolute;
+    color: rgba(207, 22, 128, 0.42);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.events-science-image img {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 960px) {
+    .events-hero {
+        min-height: 64vh;
+        padding: 128px 22px 58px;
+    }
+
+    .events-intro-section,
+    .events-featured-section,
+    .events-list-section,
+    .events-note-section,
+    .events-original-section,
+    .events-science-section {
+        padding: 58px 22px;
+    }
+
+    .events-featured-container,
+    .events-note-container {
+        grid-template-columns: 1fr;
+    }
+
+    .events-original-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 22px;
+    }
+
+    .events-science-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .events-original-date,
+    .events-original-meta {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .events-list-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .events-note-container a {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .events-hero-content span {
+        font-size: 15px;
+    }
+
+    .events-hero-actions a {
+        width: 100%;
+    }
+}

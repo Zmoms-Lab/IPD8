@@ -74,9 +74,19 @@ function fixPathForCurrentPage() {
         link.href = isSubPage ? "./thong-tin-y-khoa.html" : "./page/thong-tin-y-khoa.html";
     });
 
+    const eventLinks = document.querySelectorAll('a[href="./page/lich-cac-su-kien.html"]');
+    eventLinks.forEach(link => {
+        link.href = isSubPage ? "./lich-cac-su-kien.html" : "./page/lich-cac-su-kien.html";
+    });
+
     const faqLinks = document.querySelectorAll('a[href="./page/faqs.html"]');
     faqLinks.forEach(link => {
         link.href = isSubPage ? "./faqs.html" : "./page/faqs.html";
+    });
+
+    const contactLinks = document.querySelectorAll('a[href="./page/lien-he.html"]');
+    contactLinks.forEach(link => {
+        link.href = isSubPage ? "./lien-he.html" : "./page/lien-he.html";
     });
 }
 
@@ -97,14 +107,18 @@ function initHeader() {
         const isOnline = currentPath.includes("hoc-truc-tuyen.html");
         const isCourse = currentPath.includes("cac-khoa-hoc.html");
         const isMedical = currentPath.includes("thong-tin-y-khoa.html");
+        const isEvent = currentPath.includes("lich-cac-su-kien.html");
         const isFaq = currentPath.includes("faqs.html");
+        const isContact = currentPath.includes("lien-he.html");
 
         if (
             (isHome && href.includes("index.html")) ||
             (isOnline && href.includes("hoc-truc-tuyen.html")) ||
             (isCourse && href.includes("cac-khoa-hoc.html")) ||
             (isMedical && href.includes("thong-tin-y-khoa.html")) ||
-            (isFaq && href.includes("faqs.html"))
+            (isEvent && href.includes("lich-cac-su-kien.html")) ||
+            (isFaq && href.includes("faqs.html")) ||
+            (isContact && href.includes("lien-he.html"))
         ) {
             link.classList.add("active");
         }
