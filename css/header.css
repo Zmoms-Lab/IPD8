@@ -66,6 +66,7 @@ select {
 
 .nav-link,
 .dropdown-btn {
+    position: relative;
     font-size: 17px;
     font-weight: 600;
     color: #ffffff;
@@ -81,6 +82,28 @@ select {
 .nav-link:hover,
 .dropdown-btn:hover {
     color: #e2f7ff;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 0;
+    height: 3px;
+    border-radius: 999px;
+    background: #ffffff;
+    transform: translateX(-50%);
+    transition: width 0.22s ease;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+    width: 28px;
+}
+
+.nav-link.active {
+    color: #ffffff;
 }
 
 .header-logo {
@@ -270,6 +293,7 @@ select {
 
     .mobile-menu a.active {
         color: #ccefff;
+        border-bottom-color: rgba(204, 239, 255, 0.72);
     }
 }
 
