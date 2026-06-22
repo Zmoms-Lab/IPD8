@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     fixPathForCurrentPage();
     initHeader();
     initChatWidget();
+    initCertificateSliders();
 });
 
 async function loadLayout() {
@@ -62,6 +63,21 @@ function fixPathForCurrentPage() {
     onlineLearningLinks.forEach(link => {
         link.href = isSubPage ? "./hoc-truc-tuyen.html" : "./page/hoc-truc-tuyen.html";
     });
+
+    const courseLinks = document.querySelectorAll('a[href="./page/cac-khoa-hoc.html"]');
+    courseLinks.forEach(link => {
+        link.href = isSubPage ? "./cac-khoa-hoc.html" : "./page/cac-khoa-hoc.html";
+    });
+
+    const medicalInfoLinks = document.querySelectorAll('a[href="./page/thong-tin-y-khoa.html"]');
+    medicalInfoLinks.forEach(link => {
+        link.href = isSubPage ? "./thong-tin-y-khoa.html" : "./page/thong-tin-y-khoa.html";
+    });
+
+    const faqLinks = document.querySelectorAll('a[href="./page/faqs.html"]');
+    faqLinks.forEach(link => {
+        link.href = isSubPage ? "./faqs.html" : "./page/faqs.html";
+    });
 }
 
 function initHeader() {
@@ -79,8 +95,17 @@ function initHeader() {
         const href = link.getAttribute("href") || "";
         const isHome = currentPath.endsWith("/") || currentPath.endsWith("/index.html");
         const isOnline = currentPath.includes("hoc-truc-tuyen.html");
+        const isCourse = currentPath.includes("cac-khoa-hoc.html");
+        const isMedical = currentPath.includes("thong-tin-y-khoa.html");
+        const isFaq = currentPath.includes("faqs.html");
 
-        if ((isHome && href.includes("index.html")) || (isOnline && href.includes("hoc-truc-tuyen.html"))) {
+        if (
+            (isHome && href.includes("index.html")) ||
+            (isOnline && href.includes("hoc-truc-tuyen.html")) ||
+            (isCourse && href.includes("cac-khoa-hoc.html")) ||
+            (isMedical && href.includes("thong-tin-y-khoa.html")) ||
+            (isFaq && href.includes("faqs.html"))
+        ) {
             link.classList.add("active");
         }
     });
@@ -167,5 +192,35 @@ function initChatWidget() {
         chatMessages.appendChild(item);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
+}
+
+function initCertificateSliders() {
+    const sliders = document.querySelectorAll("[data-certificate-slider]");
+
+    sliders.forEach((slider) => {
+        const slides = Array.from(slider.querySelectorAll(".medical-certificate-slide"));
+        const counter = slider.querySelector("[data-certificate-counter]");
+        const nextButton = slider.querySelector("[data-certificate-next]");
+
+        if (!slides.length || !counter || !nextButton) {
+            return;
+        }
+
+        let currentIndex = 0;
+
+        const renderSlide = () => {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle("active", index === currentIndex);
+            });
+            counter.textContent = `${currentIndex + 1}/${slides.length}`;
+        };
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            renderSlide();
+        });
+
+        renderSlide();
+    });
 }
 

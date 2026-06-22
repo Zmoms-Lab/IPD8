@@ -1,0 +1,459 @@
+:root {
+    --medical-ink: #151515;
+    --medical-muted: #4b5563;
+    --medical-pink: #cf1680;
+    --medical-blue: #06419d;
+    --medical-soft-blue: #f6f9ff;
+    --medical-soft-pink: #fff7fb;
+    --medical-line: #ead8e3;
+    --medical-shadow: 0 22px 58px rgba(31, 55, 91, 0.14);
+}
+
+.medical-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    color: var(--medical-ink);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.medical-hero {
+    width: 100%;
+    min-height: 680px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #19383f;
+}
+
+.medical-hero-media,
+.medical-hero-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.medical-hero-media img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.medical-hero-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #d9eef4, #fff0f8);
+}
+
+.medical-hero-media:has(img[style*="display: none"])::after {
+    content: "Ảnh thông tin y khoa";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(6, 65, 157, 0.34);
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.medical-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(9, 24, 34, 0.74), rgba(9, 24, 34, 0.18) 62%, rgba(9, 24, 34, 0.42)),
+        rgba(9, 24, 34, 0.12);
+}
+
+.medical-hero-content {
+    width: min(760px, calc(100% - 40px));
+    margin-left: max(20px, 10vw);
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+}
+
+.medical-hero-content p,
+.medical-kicker,
+.medical-section-heading p {
+    color: var(--medical-pink);
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.medical-hero-content p {
+    width: fit-content;
+    margin-bottom: 18px;
+    padding: 10px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    backdrop-filter: blur(6px);
+}
+
+.medical-hero-content h1 {
+    max-width: 740px;
+    margin-bottom: 22px;
+    color: #ffffff;
+    font-size: 58px;
+    line-height: 1.08;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.medical-hero-content span {
+    max-width: 650px;
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+.golden-days-section,
+.medical-pillars-section,
+.medical-certificates-section,
+.medical-cta-section {
+    width: 100%;
+    padding: 88px 20px;
+}
+
+.golden-days-container {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+    align-items: center;
+    gap: 64px;
+}
+
+.golden-days-copy h2,
+.medical-section-heading h2 {
+    margin-top: 12px;
+    margin-bottom: 22px;
+    color: var(--medical-ink);
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.golden-days-copy p:not(.medical-kicker) {
+    color: #30343b;
+    font-size: 16px;
+    line-height: 1.78;
+}
+
+.golden-days-copy p + p {
+    margin-top: 14px;
+}
+
+.golden-days-image,
+.medical-certificate-image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--medical-soft-blue);
+    color: var(--medical-pink);
+    box-shadow: var(--medical-shadow);
+}
+
+.golden-days-image {
+    aspect-ratio: 4 / 5;
+}
+
+.golden-days-image::before {
+    content: "Ảnh 1000 ngày vàng";
+    position: absolute;
+    color: rgba(207, 22, 128, 0.45);
+    font-weight: 700;
+}
+
+.golden-days-image img,
+.medical-certificate-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.medical-pillars-section {
+    background: var(--medical-soft-blue);
+}
+
+.medical-section-heading {
+    width: min(780px, 100%);
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.medical-section-heading::after {
+    content: "";
+    width: 64px;
+    height: 3px;
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 999px;
+    background: var(--medical-pink);
+}
+
+.medical-pillars-grid {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.medical-pillars-grid article {
+    min-height: 260px;
+    padding: 30px 26px;
+    border: 1px solid #edf0f5;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(31, 55, 91, 0.08);
+}
+
+.medical-pillars-grid i {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--medical-soft-pink);
+    color: var(--medical-pink);
+    font-size: 22px;
+}
+
+.medical-pillars-grid h3,
+.medical-certificates-grid h3 {
+    margin-bottom: 14px;
+    color: var(--medical-ink);
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.medical-pillars-grid p,
+.medical-certificates-grid p {
+    color: var(--medical-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.medical-certificates-grid {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.medical-certificates-grid article {
+    padding: 18px;
+    border: 1px solid var(--medical-line);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(31, 55, 91, 0.08);
+}
+
+.medical-certificate-image {
+    aspect-ratio: 1 / 1.42;
+    margin-bottom: 18px;
+    background: #ffffff;
+    box-shadow: none;
+}
+
+.medical-certificate-image img {
+    object-fit: contain;
+    padding: 8px;
+}
+
+.medical-certificate-slider {
+    margin-bottom: 18px;
+}
+
+.medical-certificate-slide {
+    display: none;
+    margin-bottom: 0;
+}
+
+.medical-certificate-slide.active {
+    display: flex;
+}
+
+.medical-certificate-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.medical-certificate-controls span {
+    color: var(--medical-muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.medical-certificate-controls button {
+    min-width: 78px;
+    height: 36px;
+    border: 1px solid var(--medical-pink);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--medical-pink);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.medical-certificate-controls button:hover {
+    background: var(--medical-pink);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.medical-certificate-image::before {
+    content: "Ảnh chứng nhận";
+    position: absolute;
+    color: rgba(207, 22, 128, 0.42);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.medical-cta-section {
+    background: var(--medical-blue);
+    color: #ffffff;
+}
+
+.medical-cta-container {
+    width: min(840px, 100%);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.medical-cta-container p {
+    margin-bottom: 18px;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.medical-cta-container h2 {
+    margin-bottom: 34px;
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.medical-cta-container a {
+    min-width: 180px;
+    height: 56px;
+    padding: 0 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--medical-blue);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.medical-cta-container a:hover {
+    background: var(--medical-pink);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 1100px) {
+    .medical-hero-content h1 {
+        font-size: 48px;
+    }
+
+    .medical-pillars-grid,
+    .medical-certificates-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .medical-hero {
+        min-height: 640px;
+    }
+
+    .medical-hero-content {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .medical-hero-content p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .medical-hero-content h1 {
+        font-size: 36px;
+    }
+
+    .golden-days-section,
+    .medical-pillars-section,
+    .medical-certificates-section,
+    .medical-cta-section {
+        padding: 58px 18px;
+    }
+
+    .golden-days-container {
+        grid-template-columns: 1fr;
+    }
+
+    .golden-days-copy h2,
+    .medical-section-heading h2 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 560px) {
+    .medical-hero-content h1 {
+        font-size: 30px;
+    }
+
+    .medical-hero-content span,
+    .golden-days-copy p:not(.medical-kicker) {
+        font-size: 15px;
+    }
+
+    .medical-pillars-grid,
+    .medical-certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .medical-cta-container h2 {
+        font-size: 22px;
+    }
+
+    .medical-cta-container a {
+        width: 100%;
+    }
+
+}
