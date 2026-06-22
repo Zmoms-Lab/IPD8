@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadLayout();
     fixPathForCurrentPage();
     initHeader();
+    initChatWidget();
 });
 
 async function loadLayout() {
@@ -56,6 +57,11 @@ function fixPathForCurrentPage() {
     aboutLinks.forEach(link => {
         link.href = isSubPage ? "./gioithieu.html" : "./page/gioithieu.html";
     });
+
+    const onlineLearningLinks = document.querySelectorAll('a[href="./page/hoc-truc-tuyen.html"]');
+    onlineLearningLinks.forEach(link => {
+        link.href = isSubPage ? "./hoc-truc-tuyen.html" : "./page/hoc-truc-tuyen.html";
+    });
 }
 
 function initHeader() {
@@ -64,6 +70,20 @@ function initHeader() {
     const mobileMenu = document.getElementById("mobileMenu");
 
     if (!header) return;
+
+    const currentPath = window.location.pathname;
+    const navLinks = header.querySelectorAll(".nav-link, .mobile-menu a");
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        const href = link.getAttribute("href") || "";
+        const isHome = currentPath.endsWith("/") || currentPath.endsWith("/index.html");
+        const isOnline = currentPath.includes("hoc-truc-tuyen.html");
+
+        if ((isHome && href.includes("index.html")) || (isOnline && href.includes("hoc-truc-tuyen.html"))) {
+            link.classList.add("active");
+        }
+    });
 
     function handleScroll() {
         if (window.scrollY > 30) {
@@ -89,6 +109,63 @@ function initHeader() {
                 mobileMenu.classList.remove("active");
             });
         });
+    }
+}
+
+function initChatWidget() {
+    const chatWidget = document.getElementById("chatWidget");
+    const chatToggle = document.getElementById("chatToggle");
+    const chatClose = document.getElementById("chatClose");
+    const chatPanel = document.getElementById("chatPanel");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+
+    if (!chatWidget || !chatToggle || !chatPanel) return;
+
+    function setChatOpen(isOpen) {
+        chatWidget.classList.toggle("active", isOpen);
+        chatPanel.setAttribute("aria-hidden", String(!isOpen));
+        chatToggle.setAttribute("aria-label", isOpen ? "Đóng chat" : "Mở chat");
+    }
+
+    chatToggle.addEventListener("click", () => {
+        setChatOpen(!chatWidget.classList.contains("active"));
+    });
+
+    if (chatClose) {
+        chatClose.addEventListener("click", () => setChatOpen(false));
+    }
+
+    chatPanel.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => setChatOpen(false));
+    });
+
+    if (chatForm && chatInput && chatMessages) {
+        chatForm.addEventListener("submit", event => {
+            event.preventDefault();
+
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            appendChatMessage(message, "user");
+            chatInput.value = "";
+
+            window.setTimeout(() => {
+                appendChatMessage(
+                    "IPD8 đã nhận tin nhắn. Ba mẹ có thể để lại thông tin ở form, đội ngũ sẽ liên hệ tư vấn sớm.",
+                    "bot"
+                );
+            }, 450);
+        });
+    }
+
+    function appendChatMessage(message, type) {
+        const item = document.createElement("div");
+        item.className = `chat-message ${type}`;
+        item.textContent = message;
+        chatMessages.appendChild(item);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 }
 

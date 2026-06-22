@@ -1,0 +1,684 @@
+:root {
+    --online-ink: #151515;
+    --online-muted: #4b5563;
+    --online-pink: #cf1680;
+    --online-blue: #06419d;
+    --online-soft-blue: #f6f9ff;
+    --online-soft-pink: #fff7fb;
+    --online-line: #ead8e3;
+    --online-shadow: 0 22px 58px rgba(31, 55, 91, 0.14);
+}
+
+.online-page {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #ffffff;
+    color: var(--online-ink);
+    font-family: Arial, sans-serif;
+}
+
+.online-hero {
+    width: 100%;
+    min-height: 720px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #19383f;
+}
+
+.online-hero-media,
+.online-hero-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.online-hero-media img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.online-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(9, 24, 34, 0.76), rgba(9, 24, 34, 0.26) 60%, rgba(9, 24, 34, 0.46)),
+        rgba(9, 24, 34, 0.18);
+}
+
+.online-hero-content {
+    width: min(760px, calc(100% - 40px));
+    margin-left: max(20px, 10vw);
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+}
+
+.online-eyebrow,
+.section-kicker,
+.section-heading p {
+    color: var(--online-pink);
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.online-eyebrow {
+    width: fit-content;
+    margin-bottom: 18px;
+    padding: 10px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    backdrop-filter: blur(6px);
+}
+
+.online-hero-content h1 {
+    max-width: 740px;
+    margin-bottom: 22px;
+    color: #ffffff;
+    font-size: 58px;
+    line-height: 1.08;
+    font-weight: 700;
+}
+
+.online-hero-content p:not(.online-eyebrow) {
+    max-width: 650px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+.online-hero-actions {
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.online-primary-btn,
+.online-secondary-btn {
+    min-width: 180px;
+    height: 56px;
+    padding: 0 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.online-primary-btn {
+    background: var(--online-pink);
+    box-shadow: 0 18px 38px rgba(207, 22, 128, 0.28);
+}
+
+.online-secondary-btn {
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.online-primary-btn:hover,
+.online-secondary-btn:hover {
+    transform: translateY(-3px);
+    background: #ffffff;
+    color: var(--online-blue);
+}
+
+.online-stats-section {
+    padding: 0 20px;
+    background: #ffffff;
+}
+
+.online-stats-grid {
+    width: min(1080px, 100%);
+    margin: -56px auto 0;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: hidden;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: var(--online-shadow);
+}
+
+.online-stats-grid div {
+    min-height: 128px;
+    padding: 24px 22px;
+    display: grid;
+    align-content: center;
+    gap: 8px;
+}
+
+.online-stats-grid div + div {
+    border-left: 1px solid #eef0f4;
+}
+
+.online-stats-grid strong {
+    color: var(--online-blue);
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.online-stats-grid span {
+    color: var(--online-muted);
+    font-size: 13px;
+    line-height: 1.45;
+    text-transform: uppercase;
+}
+
+.online-intro-section,
+.online-benefits-section,
+.online-path-section,
+.online-program-section,
+.online-register-section,
+.online-faq-section {
+    width: 100%;
+    padding: 88px 20px;
+}
+
+.online-intro-container,
+.online-program-container,
+.online-register-container,
+.online-faq-container {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+}
+
+.online-intro-container,
+.online-program-container,
+.online-register-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+    align-items: center;
+    gap: 64px;
+}
+
+.online-intro-copy h2,
+.online-program-copy h2,
+.online-register-copy h2,
+.section-heading h2 {
+    margin-top: 12px;
+    margin-bottom: 22px;
+    color: var(--online-ink);
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.online-intro-copy p:not(.section-kicker),
+.online-program-copy li,
+.online-register-copy p,
+.online-faq-list p {
+    color: #30343b;
+    font-size: 16px;
+    line-height: 1.78;
+}
+
+.online-intro-copy p + p {
+    margin-top: 14px;
+}
+
+.online-intro-image,
+.online-program-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f2f2f2;
+    box-shadow: var(--online-shadow);
+}
+
+.online-intro-image {
+    aspect-ratio: 4 / 5;
+}
+
+.online-program-image {
+    aspect-ratio: 350 / 250;
+}
+
+.online-intro-image img,
+.online-program-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.online-benefits-section,
+.online-register-section {
+    background: var(--online-soft-blue);
+}
+
+.online-path-section {
+    background: var(--online-soft-pink);
+}
+
+.online-reviews-section {
+    width: 100%;
+    padding: 88px 20px;
+    background: var(--online-soft-pink);
+}
+
+.section-heading {
+    width: min(780px, 100%);
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.section-heading::after {
+    content: "";
+    width: 64px;
+    height: 3px;
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 999px;
+    background: var(--online-pink);
+}
+
+.online-benefits-grid,
+.online-path-grid {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.online-benefits-grid article,
+.online-path-grid article,
+.online-faq-list details {
+    border: 1px solid #edf0f5;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(31, 55, 91, 0.08);
+}
+
+.online-benefits-grid article {
+    min-height: 240px;
+    padding: 28px 24px;
+}
+
+.online-benefits-grid i {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--online-soft-pink);
+    color: var(--online-pink);
+    font-size: 21px;
+}
+
+.online-benefits-grid h3,
+.online-path-grid h3 {
+    margin-bottom: 14px;
+    color: var(--online-ink);
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.online-benefits-grid p,
+.online-path-grid p {
+    color: var(--online-muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.online-path-container {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+}
+
+.online-path-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.online-path-grid article {
+    padding: 28px 24px;
+}
+
+.online-path-grid span {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--online-blue);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.online-program-copy ul {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.online-program-copy li {
+    position: relative;
+    padding-left: 26px;
+}
+
+.online-program-copy li::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--online-pink);
+}
+
+.online-register-container {
+    grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+}
+
+.online-register-form {
+    padding: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: var(--online-shadow);
+}
+
+.online-register-form label {
+    display: grid;
+    gap: 9px;
+}
+
+.online-register-form span {
+    color: var(--online-ink);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.online-register-form input,
+.online-register-form select,
+.online-register-form textarea {
+    width: 100%;
+    border: 1px solid #dfe4ec;
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--online-ink);
+    font: inherit;
+    font-size: 14px;
+    outline: 0;
+}
+
+.online-register-form input,
+.online-register-form select {
+    height: 46px;
+    padding: 0 14px;
+}
+
+.online-register-form textarea {
+    min-height: 112px;
+    padding: 12px 14px;
+    resize: vertical;
+}
+
+.online-register-form input:focus,
+.online-register-form select:focus,
+.online-register-form textarea:focus {
+    border-color: var(--online-pink);
+}
+
+.online-register-form .form-full,
+.online-register-form button {
+    grid-column: 1 / -1;
+}
+
+.online-register-form button {
+    height: 54px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--online-pink);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.online-register-form button:hover {
+    background: var(--online-blue);
+    transform: translateY(-2px);
+}
+
+.online-reviews-grid {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.online-reviews-grid article {
+    min-height: 260px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f0d8e7;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(31, 55, 91, 0.08);
+}
+
+.online-reviews-grid strong {
+    margin-bottom: 18px;
+    color: #f4b400;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.online-reviews-grid p {
+    flex: 1;
+    color: #30343b;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.online-reviews-grid span {
+    margin-top: 18px;
+    color: var(--online-pink);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.online-faq-list {
+    display: grid;
+    gap: 14px;
+}
+
+.online-faq-list details {
+    padding: 0;
+}
+
+.online-faq-list summary {
+    padding: 20px 22px;
+    color: var(--online-ink);
+    font-size: 17px;
+    line-height: 1.45;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.online-faq-list p {
+    padding: 0 22px 22px;
+}
+
+.online-contact-strip {
+    width: 100%;
+    padding: 74px 20px 88px;
+    background: #ffffff;
+}
+
+.online-contact-container {
+    width: min(980px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    align-items: center;
+    gap: 54px;
+}
+
+.online-contact-container h2 {
+    margin: 12px 0 18px;
+    color: var(--online-ink);
+    font-size: 30px;
+    line-height: 1.3;
+}
+
+.online-contact-container p:not(.section-kicker) {
+    margin-bottom: 16px;
+    color: #30343b;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.online-contact-container a {
+    color: var(--online-pink);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.online-qr-box {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--online-line);
+    border-radius: 8px;
+    background: var(--online-soft-blue);
+    color: var(--online-pink);
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: var(--online-shadow);
+}
+
+.online-qr-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    padding: 18px;
+}
+
+@media (max-width: 1100px) {
+    .online-hero-content h1 {
+        font-size: 48px;
+    }
+
+    .online-benefits-grid,
+    .online-path-grid,
+    .online-reviews-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .online-hero {
+        min-height: 680px;
+    }
+
+    .online-hero-content {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .online-eyebrow,
+    .online-hero-actions {
+        margin-right: auto;
+        margin-left: auto;
+        justify-content: center;
+    }
+
+    .online-hero-content h1 {
+        font-size: 36px;
+    }
+
+    .online-stats-grid,
+    .online-intro-container,
+    .online-program-container,
+    .online-register-container,
+    .online-contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .online-stats-grid div + div {
+        border-top: 1px solid #eef0f4;
+        border-left: 0;
+    }
+
+    .online-intro-section,
+    .online-benefits-section,
+    .online-path-section,
+    .online-program-section,
+    .online-register-section,
+    .online-faq-section,
+    .online-reviews-section,
+    .online-contact-strip {
+        padding: 58px 18px;
+    }
+
+    .online-intro-copy h2,
+    .online-program-copy h2,
+    .online-register-copy h2,
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .online-register-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .online-hero-content h1 {
+        font-size: 30px;
+    }
+
+    .online-hero-content p:not(.online-eyebrow) {
+        font-size: 15px;
+    }
+
+    .online-primary-btn,
+    .online-secondary-btn {
+        width: 100%;
+    }
+
+    .online-benefits-grid,
+    .online-path-grid,
+    .online-reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .online-register-form {
+        padding: 24px 18px;
+    }
+}
